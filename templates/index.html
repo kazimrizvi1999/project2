@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Apriori Algorithm Web App</title>
+  </head>
+  <body>
+    <h1>Apriori Algorithm</h1>
+    <form method="post">
+      <label for="transactions">Enter transactions (each on a new line, items separated by commas):</label><br>
+      <textarea id="transactions" name="transactions" rows="10" cols="50"></textarea><br>
+      <label for="min_support">Minimum Support:</label><br>
+      <input type="number" id="min_support" name="min_support" value="2"><br><br>
+      <input type="submit" value="Run Apriori">
+    </form>
+
+    {% if results %}
+    <h2>Results</h2>
+    <p>Minimum Support: {{ min_support }}</p>
+    <ul>
+      {% for itemset in results %}
+      <li>{{ itemset }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
